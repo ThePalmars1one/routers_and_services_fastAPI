@@ -17,4 +17,12 @@ class GenresService():
         self.db.commit()
         return
 
+    def delete_genre(self, id:int):
+        genre = self.db.query(genresModel).get(id)
+        if genre:
+            self.db.delete(genre)
+            self.db.commit()
+            return True
+        return False
+
     

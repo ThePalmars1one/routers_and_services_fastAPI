@@ -22,3 +22,12 @@ def create_genre(genre:Genres) -> dict:
     GenresService(db).create_genre(genre)
     return JSONResponse(content={'message':'genre save in data base'}, status_code=201)
 
+@genres_router.delete('/genres/{id}',tags=['genres'])
+def delete_movie(id:int):
+    db = Session()
+    success = GenresService(db).delete_genre(id)
+    if success:
+        return JSONResponse(content="Deleted genre", status_code=200)
+    else:
+        return JSONResponse(status_code=404,content={"message":"Not found"})
+

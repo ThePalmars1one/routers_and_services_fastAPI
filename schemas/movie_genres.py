@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 
 
 
-class MovieCast(BaseModel):
+class MovieGenres(BaseModel):
         gen_id: int
         mov_id: int
 

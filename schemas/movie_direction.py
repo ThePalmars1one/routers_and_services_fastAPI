@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 
 
 
-class MovieCast(BaseModel):
+class MovieDirection(BaseModel):
         dir_id: int
         mov_id: int
 

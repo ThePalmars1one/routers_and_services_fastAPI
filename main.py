@@ -13,6 +13,8 @@ from routers.user import user_router
 from routers.actor import actor_router
 from routers.movie_cast import movie_cast_router
 from routers.genres import genres_router
+from routers.movie_genres import movie_genres_router
+from routers.director import director_router
 
 app = FastAPI()
 app.title = "Mi app con FastAPI"
@@ -24,7 +26,8 @@ app.include_router(user_router)
 app.include_router(actor_router)
 app.include_router(movie_cast_router)
 app.include_router(genres_router)
-
+app.include_router(movie_genres_router)
+app.include_router(director_router)
 
 Base.metadata.create_all(bind=engine)
 
