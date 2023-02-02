@@ -18,4 +18,25 @@ class DirectorService():
         self.db.commit()
         return
 
+    def delete_director(self, id:int):
+        director = self.db.query(directorModel).get(id)
+        if director:
+            self.db.delete(director)
+            self.db.commit()
+            return True
+        return False
+
+    def update_director(self,id:int, data:directorModel):
+        director = self.db.query(directorModel).get(id)
+        if director:
+            director.dir_fname = data.dir_fname
+            director.dir_lname = data. dir_lname
+            self.db.commit()
+            return True
+        return False
+
+    def get_director_id(self,id:int):
+        result = self.db.query(directorModel).filter(directorModel.dir_id == id).first()
+        return result
+
     

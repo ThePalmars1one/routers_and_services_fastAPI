@@ -43,7 +43,6 @@ def get_movies_by_release_contry(release_contry:str = Query(min_length=3,max_len
         return JSONResponse(status_code=404,content={"message":"No found"})
     return JSONResponse(content=jsonable_encoder(result), status_code=200)
 
-
 @movie_router.post('/movies',tags=['movies'],status_code=201,response_model=dict)
 def create_movie(movie:Movie)->dict:
     db = Session()
