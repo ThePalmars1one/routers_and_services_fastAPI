@@ -28,19 +28,19 @@ The next step would be to install all the packages required in the project, whic
 ## Routers
 This would be an example of the implementation of "GET" in the "movie" routes:
 
-@genres_router.get('/genres',tags=['genres'], response_model=Genres, status_code= 200)
-def get_genre() -> Genres:   
-    db = Session()
-    result = GenresService(db).get_genres()
-    return JSONResponse(content=jsonable_encoder(result),status_code=200)
+<p align=center>
+<img src="https://i.postimg.cc/qRMmn5sD/get-genres-router.png">
+</p>
 
-With this code a request is made and, if successful, the code: 200 OK is displayed, confirming that all relevant information has been retrieved.
+Session() is what will allow us to perform CRUD queries, which is stored in the variable "db", then it is passed as a parameter to the service and the function that will perform the request is called. "jsonable_encoder" is simply in charge of encoding the information to JSON format and at the end of the process, a code "200" is returned to indicate that the query was successful.
 
 ## Services
 This is the service used in the previous example:
 
-def get_genres(self) -> genresModel:
-        result = self.db.query(genresModel).all()
-        return result
+<p align=center>
+<img src="https://i.postimg.cc/1RDHXP1R/get-genres-service.png">
+</p>
 
 With this function the connection with the database is made, the query to the "genresModel" is made and with the function ".all()" bring all that it finds.
+
+
