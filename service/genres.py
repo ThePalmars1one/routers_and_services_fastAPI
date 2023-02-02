@@ -25,4 +25,16 @@ class GenresService():
             return True
         return False
 
+    def update_genre(self,id:int, data:genresModel):
+        genre = self.db.query(genresModel).get(id)
+        if genre:
+            genre.gen_title = data.gen_title
+            self.db.commit()
+            return True
+        return False
+
+    def get_genre_id(self,id:int):
+        result = self.db.query(genresModel).filter(genresModel.gen_id == id).first()
+        return result
+
     
